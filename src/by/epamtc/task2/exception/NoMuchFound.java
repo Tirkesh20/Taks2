@@ -2,6 +2,7 @@ package by.epamtc.task2.exception;
 
 public class NoMuchFound extends Exception{
     public NoMuchFound() {
+        System.out.println("no much found");
     }
 
     public NoMuchFound(String message) {

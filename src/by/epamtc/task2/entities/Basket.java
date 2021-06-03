@@ -9,10 +9,11 @@ import java.util.*;
 
 public class Basket {
     private final Map<Colors,ArrayList<Ball>> ballContainer;
-
+    private double volume;
 
     public Basket(){
         this.ballContainer =new HashMap<>();
+        this.volume=100d;
     }
 
     public void addBall(Ball ball,Colors color){
@@ -25,6 +26,14 @@ public class Basket {
             list.add(ball);
         }
     }
+
+    public double getVolume() {
+        return volume;
+    }
+    public void setVolume(double value){
+        this.volume=value;
+    }
+
 
     public Map<Colors,ArrayList<Ball>> getMap(){
         return this.ballContainer;
