@@ -28,23 +28,16 @@ public class Services {
                                                                     .sum();
     }
 
-    public Ball createBall(String color,double weight) throws NoMuchFound {
-        Ball ball=new Ball();
-        ball.setColor(stringToColor(color));
-        ball.setWeight(weight);
-        return ball;
-    }
 
-    public  Basket createBasket(double val){
-        Basket basket=new Basket();
-        basket.setVolume(val);
-        return basket;
+    public static boolean isColor(String color){
+        return Arrays.stream(Colors.values()).findAny().equals(color.toUpperCase());
     }
-    public Colors stringToColor(String color) throws NoMuchFound {
+    public static Colors stringToColor(String color) throws NoMuchFound {
         if (Arrays.stream(Colors.values()).findAny().equals(color.toUpperCase())){
-           throw new NoMuchFound();
+            return  Colors.valueOf(color.toUpperCase());
+        }else {
+            throw new NoMuchFound();
         }
-            return  Colors.valueOf(color.toUpperCase(Locale.ROOT));
     }
 
     public List<Ball> getListOfBalls(Colors colors){

@@ -1,6 +1,5 @@
 package by.epamtc.task2.scanners;
 
-import java.awt.*;
 import java.util.Scanner;
 
 public class Scanners {
@@ -13,11 +12,24 @@ public class Scanners {
         return scanner.nextDouble();
     }
 
+
+    public static double positiveDouble() {
+        double number;
+        do {
+            while (!scanner.hasNextDouble()) {
+                System.out.println("That's not a number!");
+                scanner.next();
+            }
+            number = scanner.nextDouble();
+        } while (number <= 0);
+        return number;
+    }
+
     public static String StringScanner(){
         while (!scanner.hasNext()){
             scanner.next();
         }
-        return scanner.next();
+        return scanner.nextLine();
     }
 
 }
