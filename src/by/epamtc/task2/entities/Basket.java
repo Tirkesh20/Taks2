@@ -1,14 +1,14 @@
 package by.epamtc.task2.entities;
 
 
-import by.epamtc.task2.enums.Colors;
+import by.epamtc.task2.enums.Color;
 import by.epamtc.task2.exception.NoMuchFound;
 
 import java.util.*;
 
 
 public class Basket {
-    private final Map<Colors,ArrayList<Ball>> ballContainer;
+    private final Map<Color,ArrayList<Ball>> ballContainer;
     private double volume;
 
     public Basket(){
@@ -16,7 +16,7 @@ public class Basket {
         this.volume=100d;
     }
 
-    public void addBall(Ball ball,Colors color){
+    public void addBall(Ball ball, Color color){
         if (!ballContainer.containsKey(color)){
             ArrayList<Ball> list=new ArrayList<>();
             list.add(ball);
@@ -30,21 +30,19 @@ public class Basket {
     public double getVolume() {
         return volume;
     }
+
     public void setVolume(double value){
         this.volume=value;
     }
 
-
-    public Map<Colors,ArrayList<Ball>> getMap(){
+    public Map<Color,ArrayList<Ball>> getMap(){
         return this.ballContainer;
     }
 
-    public List<Ball> getList(Colors color)  {
+    public List<Ball> getList(Color color) throws NoMuchFound {
         if (!ballContainer.containsKey(color)) {
-            return null;
+            throw new NoMuchFound("No balls where added yet");
         }
         return ballContainer.get(color);
     }
-
-
 }

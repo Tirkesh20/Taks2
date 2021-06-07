@@ -1,12 +1,12 @@
 package by.epamtc.task2.entities;
 
-import by.epamtc.task2.enums.Colors;
+import by.epamtc.task2.enums.Color;
 
 import java.util.Objects;
 
 public class Ball {
     private double weight;
-    private Colors color;
+    private Color color;
 
     public double getWeight() {
         return weight;
@@ -16,11 +16,11 @@ public class Ball {
         this.weight = weight;
     }
 
-    public Colors getColor() {
+    public Color getColor() {
         return color;
     }
 
-    public void setColor(Colors color) {
+    public void setColor(Color color) {
         this.color = color;
     }
 
