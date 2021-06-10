@@ -34,7 +34,10 @@ public class Ball {
 
     @Override
     public int hashCode(){
-        return Objects.hash(weight,color);
+        int result=21;
+        result=16*result+Double.hashCode(weight);
+        result=16*result+color.hashCode();
+        return result;
     }
 
     @Override
@@ -42,7 +45,8 @@ public class Ball {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Ball ball = (Ball) o;
-        return Double.compare(ball.weight, weight) == 0 && Objects.equals(color, ball.color);
+        if(Double.compare(ball.weight,weight)==0)return true;
+        return Objects.equals(color,ball.color);
     }
 
 }
