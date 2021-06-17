@@ -7,13 +7,14 @@ import by.epamtc.task2.entities.Basket;
 import by.epamtc.task2.enums.Color;
 import by.epamtc.task2.exception.IllegalArgumentException;
 import by.epamtc.task2.exception.NoMuchFound;
+import by.epamtc.task2.exception.OverweightException;
 import by.epamtc.task2.scanners.Scanners;
 import by.epamtc.task2.service.Services;
 
 public class Test {
 
 
-    public static void main(String[] args) throws NoMuchFound, IllegalArgumentException {
+    public static void main(String[] args) throws NoMuchFound, IllegalArgumentException, OverweightException {
         System.out.println("create basket");
         Basket basket=BasketCreator.createBasket();
         Services services=new Services(basket);
@@ -28,7 +29,7 @@ public class Test {
             switch (action) {
                 case 1 -> {
                     Ball ball = BallCreator.createBall();
-                    services.addBall(ball);
+                    basket.addBall(ball,ball.getColor());
                     break;
                 }
                 case 2 -> {
@@ -38,7 +39,7 @@ public class Test {
                     break;
                 }
                 case 3 -> {
-                    System.out.println(services.ballsWeightCounter());
+                    System.out.println(basket.ballsWeightCounter());
                     break;
                 }
                 case 4 -> {

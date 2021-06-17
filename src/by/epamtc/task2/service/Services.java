@@ -17,13 +17,7 @@ public class Services {
     }
 
 
-    public  double ballsWeightCounter() {
-        Map<Color, ArrayList<Ball>> map=basket.getMap();
-        return map.values().stream().mapToDouble(balls -> balls.stream()
-                                                                .mapToDouble(Ball::getWeight)
-                                                                  .sum())
-                                                                    .sum();
-    }
+
 
     public static boolean isColor(String color){
       for (Color colors: Color.values()){
@@ -34,7 +28,7 @@ public class Services {
     }
 
 
-    public static Color stringToColor(String color) throws IllegalArgumentException {
+    public  Color stringToColor(String color) throws IllegalArgumentException {
         if (isColor(color)) return   Color.valueOf(color.toUpperCase());
         else throw new IllegalArgumentException("not a color");
     }
@@ -45,7 +39,7 @@ public class Services {
             throw new IllegalArgumentException("color can't be null");
         }else {
             if (isColor(color)){
-                return basket.getList(Services.stringToColor(color));
+                return basket.getList(stringToColor(color));
             }
             else throw new NoMuchFound("Balls not exist");
         }
@@ -54,20 +48,8 @@ public class Services {
     public long getCount(String color) throws IllegalArgumentException, NoMuchFound {
         if (color==null){
             throw new IllegalArgumentException("color cant be null");
-          }else return basket.getList(Services.stringToColor(color)).size();
+          }else return basket.getList(stringToColor(color)).size();
         }
 
-
-    public  void addBall(Ball ball){
-        if (basket.getVolume()<ballsWeightCounter()){
-            System.out.println("no space left");
-        }else {
-            basket.addBall(ball,ball.getColor());
-        }
-    }
-
-    public Map<Color,ArrayList<Ball>> getMap(){
-        return basket.getMap();
-    }
 
 }
