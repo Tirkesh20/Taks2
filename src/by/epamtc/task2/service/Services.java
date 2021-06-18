@@ -16,9 +16,6 @@ public class Services {
         this.basket = basket;
     }
 
-
-
-
     public static boolean isColor(String color){
       for (Color colors: Color.values()){
           if (colors.name().equalsIgnoreCase(color))
@@ -41,7 +38,7 @@ public class Services {
             if (isColor(color)){
                 return basket.getList(stringToColor(color));
             }
-            else throw new NoMuchFound("Balls not exist");
+            else return null;
         }
     }
 
