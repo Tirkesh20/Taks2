@@ -65,9 +65,9 @@ public class Basket {
         return this.ballContainer;
     }
 
-    public List<Ball> getList(Color color) throws NoMuchFound {
+    public List<Ball> getList(Color color) {
         if (!ballContainer.containsKey(color)) {
-            throw new NoMuchFound("No balls where added yet");
+            return null;
         }
         return ballContainer.get(color);
     }

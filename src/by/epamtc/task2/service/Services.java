@@ -51,7 +51,7 @@ public class Services {
         }
     }
 
-    public long getCount(String color) throws IllegalArgumentException, NoMuchFound {
+    public long getCount(String color) throws IllegalArgumentException {
         if (color==null){
             throw new IllegalArgumentException("color cant be null");
           }else return basket.getList(stringToColor(color)).size();
