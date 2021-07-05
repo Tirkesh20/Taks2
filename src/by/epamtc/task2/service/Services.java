@@ -24,6 +24,15 @@ public class Services {
       return false;
     }
 
+    public  double ballsWeightCounter(Map<Color,ArrayList<Ball>> map) throws IllegalArgumentException {
+        if (map==null){
+            throw new IllegalArgumentException();
+        }
+        return map.values().stream().mapToDouble(balls -> balls.stream()
+                .mapToDouble(Ball::getWeight)
+                .sum())
+                .sum();
+    }
 
     public  Color stringToColor(String color) throws IllegalArgumentException {
         if (isColor(color)) return   Color.valueOf(color.toUpperCase());
@@ -47,6 +56,5 @@ public class Services {
             throw new IllegalArgumentException("color cant be null");
           }else return basket.getList(stringToColor(color)).size();
         }
-
 
 }

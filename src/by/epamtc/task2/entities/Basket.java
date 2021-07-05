@@ -17,6 +17,11 @@ public class Basket {
         this.ballContainer =new HashMap<>();
     }
 
+    public Basket(double v){
+        this.volume=v;
+        this.ballContainer =new HashMap<>();
+    }
+
     public Iterator<Ball> getBallsIterator(Color color) throws NoMuchFound {
         if (!ballContainer.containsKey(color)){
           throw new NoMuchFound("container empty");
@@ -26,15 +31,15 @@ public class Basket {
         }
     }
 
-    public void addBall(Ball ball, Color color) throws OverweightException {
-        if (!ballContainer.containsKey(color)){
+    public void addBall(Ball ball) throws OverweightException {
+        if (!ballContainer.containsKey(ball.getColor())){
             ArrayList<Ball> list=new ArrayList<>();
             list.add(ball);
-            ballContainer.put(color,list);
+            ballContainer.put(ball.getColor(),list);
         }else if (volume< ballsWeightCounter()){
                 throw  new OverweightException("no space left");
             }else {
-            ArrayList<Ball> list = ballContainer.get(color);
+            ArrayList<Ball> list = ballContainer.get(ball.getColor());
             list.add(ball);
             }
         }

@@ -29,17 +29,13 @@ public class Test {
             switch (action) {
                 case 1 -> {
                     Ball ball = BallCreator.createBall();
-                    basket.addBall(ball,ball.getColor());
+                    basket.addBall(ball);
                     break;
                 }
                 case 2 -> {
                     System.out.println("enter the color of ball to count");
                     String color = Scanners.StringScanner();
                     System.out.println(services.getCount(color));
-                    break;
-                }
-                case 3 -> {
-                    System.out.println(basket.ballsWeightCounter());
                     break;
                 }
                 case 4 -> {
