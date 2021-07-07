@@ -21,7 +21,7 @@ public class ServicesTest {
      }
 
      @Test(expected = IllegalArgumentException.class)
-    public void testIfArgumentIsNotColor() throws NoMuchFound, IllegalArgumentException {
+    public void testIfArgumentIsNotColor() throws IllegalArgumentException {
         String color="bottle";
         double count=services.getCount(color);
     }
