@@ -2,6 +2,7 @@ package by.epamtc.task2.entities;
 
 import by.epamtc.task2.exception.IllegalArgumentException;
 import by.epamtc.task2.exception.OverweightException;
+import by.epamtc.task2.model.Basket;
 import org.junit.Before;
 import org.junit.Test;
 

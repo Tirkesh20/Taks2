@@ -1,6 +1,6 @@
 package by.epamtc.task2.service;
 
-import by.epamtc.task2.entities.Basket;
+import by.epamtc.task2.model.Basket;
 import by.epamtc.task2.exception.IllegalArgumentException;
 import by.epamtc.task2.exception.NoMuchFound;
 import by.epamtc.task2.exception.OverweightException;
@@ -11,7 +11,7 @@ import static org.junit.Assert.assertEquals;
 
 public class ServicesTest {
     Basket basket=new Basket(4);
-    Services services=new Services(basket);
+    CommonServices services=new DefaultServices(basket);
 
     @Before
     public void before() throws IllegalArgumentException, OverweightException {

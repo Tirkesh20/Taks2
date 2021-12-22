@@ -1,10 +1,9 @@
-package by.epamtc.task2.entities;
+package by.epamtc.task2.model;
 
 
 import by.epamtc.task2.enums.Color;
 import by.epamtc.task2.exception.NoMuchFound;
 import by.epamtc.task2.exception.OverweightException;
-import by.epamtc.task2.service.Services;
 
 import java.util.*;
 

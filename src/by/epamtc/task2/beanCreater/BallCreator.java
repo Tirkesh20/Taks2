@@ -1,11 +1,11 @@
 package by.epamtc.task2.beanCreater;
 
-import by.epamtc.task2.entities.Ball;
+import by.epamtc.task2.model.Ball;
 import by.epamtc.task2.enums.Color;
 import by.epamtc.task2.exception.IllegalArgumentException;
 import by.epamtc.task2.exception.NoMuchFound;
 import by.epamtc.task2.scanners.Scanners;
-import by.epamtc.task2.service.Services;
+import by.epamtc.task2.service.DefaultServices;
 
 public class BallCreator {
         public static Ball createBall() throws NoMuchFound {
@@ -13,7 +13,7 @@ public class BallCreator {
                         String color;
                         do {
                                 color=Scanners.StringScanner();
-                        }while (!Services.isColor(color));
+                        }while (!DefaultServices.isColor(color));
                         ball.setColor(Color.valueOf(color.toUpperCase()));
                         double weight=Scanners.positiveDouble();
                         ball.setWeight(weight);
@@ -21,7 +21,7 @@ public class BallCreator {
     }
 
     public  static Ball createBall(String color,double weight) throws IllegalArgumentException {
-            if (!Services.isColor(color)){
+            if (!DefaultServices.isColor(color)){
                 throw new IllegalArgumentException();
             }
             if (weight<=0){

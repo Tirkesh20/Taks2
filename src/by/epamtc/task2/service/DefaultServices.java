@@ -1,18 +1,21 @@
 package by.epamtc.task2.service;
 
-import by.epamtc.task2.entities.Ball;
-import by.epamtc.task2.entities.Basket;
+import by.epamtc.task2.model.Ball;
+import by.epamtc.task2.model.Basket;
 import by.epamtc.task2.enums.Color;
 import by.epamtc.task2.exception.IllegalArgumentException;
 import by.epamtc.task2.exception.NoMuchFound;
+
+import java.awt.*;
 import java.util.*;
+import java.util.List;
 
 
-public class Services {
+public class DefaultServices implements CommonServices {
     private final Basket basket;
 
 
-    public Services(Basket basket) {
+    public DefaultServices(Basket basket) {
         this.basket = basket;
     }
 

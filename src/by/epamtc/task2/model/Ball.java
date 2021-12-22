@@ -1,4 +1,4 @@
-package by.epamtc.task2.entities;
+package by.epamtc.task2.model;
 
 import by.epamtc.task2.enums.Color;
 

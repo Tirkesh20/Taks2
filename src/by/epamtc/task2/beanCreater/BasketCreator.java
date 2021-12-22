@@ -1,6 +1,6 @@
 package by.epamtc.task2.beanCreater;
 
-import by.epamtc.task2.entities.Basket;
+import by.epamtc.task2.model.Basket;
 import by.epamtc.task2.scanners.Scanners;
 
 public class BasketCreator {

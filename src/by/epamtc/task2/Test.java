@@ -2,14 +2,15 @@ package by.epamtc.task2;
 
 import by.epamtc.task2.beanCreater.BallCreator;
 import by.epamtc.task2.beanCreater.BasketCreator;
-import by.epamtc.task2.entities.Ball;
-import by.epamtc.task2.entities.Basket;
+import by.epamtc.task2.model.Ball;
+import by.epamtc.task2.model.Basket;
 import by.epamtc.task2.enums.Color;
 import by.epamtc.task2.exception.IllegalArgumentException;
 import by.epamtc.task2.exception.NoMuchFound;
 import by.epamtc.task2.exception.OverweightException;
 import by.epamtc.task2.scanners.Scanners;
-import by.epamtc.task2.service.Services;
+import by.epamtc.task2.service.CommonServices;
+import by.epamtc.task2.service.DefaultServices;
 
 public class Test {
 
@@ -17,7 +18,7 @@ public class Test {
     public static void main(String[] args) throws NoMuchFound, IllegalArgumentException, OverweightException {
         System.out.println("create basket");
         Basket basket=BasketCreator.createBasket();
-        Services services=new Services(basket);
+        CommonServices services=new DefaultServices(basket);
         boolean flag=false;
         do {
             System.out.println("enter action\n");
@@ -30,13 +31,11 @@ public class Test {
                 case 1 -> {
                     Ball ball = BallCreator.createBall();
                     basket.addBall(ball);
-                    break;
                 }
                 case 2 -> {
                     System.out.println("enter the color of ball to count");
                     String color = Scanners.StringScanner();
                     System.out.println(services.getCount(color));
-                    break;
                 }
                 case 4 -> {
                     flag = true;
